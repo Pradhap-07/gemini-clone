@@ -1,0 +1,233 @@
+.main {
+    flex: 1;
+    min-height: 100vh;
+    padding-bottom: 15vh;
+    position: relative;
+}
+
+.main .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 22px;
+    padding: 20px;
+    color: #585;
+}
+
+.main .nav img{
+    width: 40px;
+    border-radius:50% ;
+}
+
+.main-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.main .greet{
+    margin: 50px 0px;
+    font-size: 56px;
+    color: #c4c7c5;
+    font-weight: 500;
+    padding: 20px;
+}
+
+.main .greet span {
+    background: -webkit-linear-gradient(16deg, #4b90ff , #ff5546);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main .greet p {
+    background: -webkit-linear-gradient(16deg, #4b90ff , #ff5546);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main .cards {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    gap: 16px;
+    padding: 20px;
+}
+
+.main .card {
+    height: 200px;
+    padding: 15px;
+    background-color: #f0f4f9;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.main .card img {
+    width: 35px;
+    padding: 5px;
+    position: absolute;
+    background-color: white;
+    border-radius: 20px;
+    bottom:10px;
+    right: 10px;
+}
+
+.main .card p{
+    color:#585858;
+    font-size: 17px;
+}
+
+.main .card:hover {
+    background-color: #dfe4ea;
+}
+
+.main-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-width: 900px;
+    padding: 0px 20px;
+    margin: auto;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background-color: #f0f4f9;
+    padding: 10px 20px;
+    border-radius: 50px;
+    width: 100%;
+}
+
+.search-box img{
+    width: 25px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.search-box img:hover{
+    transform: scale(1.1);
+}
+
+.search-box input{
+    flex: 1;
+    background: transparent;
+    margin-right: 10px;
+    border: 1px;
+    border-radius: 40px;
+    outline: none;
+    cursor: text;
+    padding: 10px;
+    font-size: 18px;
+    z-index: 1;
+}
+
+.search-box div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main .bottom-info{
+    font-size: 13px;
+    margin: 15px auto;
+    text-align: center;
+    font-weight: 300;
+}
+
+.result{
+    padding: 0px 5%;
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
+.result::-webkit-scrollbar {
+    display: none;
+}
+
+.result-title{
+    margin: 40px 0px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.result img{
+    width: 40px;
+    border-radius: 50%;
+}
+
+.result-data{
+    display: flex;
+    align-items: start;
+    gap:20px;
+}
+
+  .loader {
+    display: flex;
+    justify-content: center; /* Center align horizontally */
+    align-items: center; /* Center align vertically */
+    gap: 8px; /* Space between bars */
+    height: 100px; /* Adjust to fit your layout */
+  }
+  
+  .loader div {
+    width: 10px; /* Width of each bar */
+    height: 40px; /* Initial height */
+    background-color: #3498db; /* Color of bars */
+    border-radius: 4px; /* Rounded edges */
+    animation: gemini-bounce 1.5s infinite ease-in-out;
+  }
+  
+  /* Delays for each bar to create the wave effect */
+  .loader div:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .loader div:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .loader div:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  /* Keyframes for bouncing animation */
+  @keyframes gemini-bounce {
+    0%, 100% {
+      transform: scaleY(1); /* Normal size */
+      opacity: 0.8; /* Slight transparency */
+    }
+    50% {
+      transform: scaleY(1.5); /* Taller */
+      opacity: 1; /* Full opacity */
+    }
+  }
+  
+
+
+.result-data p{
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+@media (max-width:600px) {
+
+    .main-bottom input{
+        flex:none;
+        width: 150px;
+    }
+
+    .main-bottom img {
+        width: 20px;
+    }
+
+    .search-box {
+        padding: 5px 10px;
+    }
+
+    .search-box div{
+        gap: 5px;
+    }
+    
+}
