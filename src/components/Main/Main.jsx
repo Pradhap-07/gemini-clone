@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import './Main.css'
 import { assets } from '../../assets/assets'
-import { Context } from '../../context/Context'
+import { context } from '../../context/context'
 
 const Main = () => {
 
-  const { onSent, recentPrompt, showResult, loading, resultData, setInput, input } = useContext(Context)
+  const { onSent, recentPrompt, showResult, loading, resultData, setInput, input } = useContext(context)
 
   return (
     <div className='main'>
