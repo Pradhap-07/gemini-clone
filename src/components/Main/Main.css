@@ -131,6 +131,8 @@
     gap: 10px;
 }
 
+  
+
 .main .bottom-info{
     font-size: 13px;
     margin: 15px auto;
@@ -213,6 +215,9 @@
     line-height: 1.8;
 }
 
+
+
+
 @media (max-width:600px) {
 
     .main-bottom input{
@@ -232,4 +237,45 @@
         gap: 5px;
     }
     
+}
+
+
+/* Headings */
+h1 { font-size: 24px; font-weight: bold; margin-bottom: 8px; }
+h2 { font-size: 20px; font-weight: bold; margin-bottom: 6px; }
+h3 { font-size: 18px; font-weight: bold; margin-bottom: 4px; }
+
+/* Strong (Bold) */
+strong { font-weight: 600; color: #222; }
+
+/* Italics */
+i { font-style: italic; }
+
+pre {
+    background-color: #1e1e1e; /* Dark background */
+    color: #ffffff; /* Light text */
+    padding: 12px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: "Fira Code", "Courier New", monospace; /* Better monospaced font */
+    font-size: 14px;
+    white-space: pre-wrap; /* Ensures proper formatting of multiline code */
+    line-height: 1.5;
+}
+
+code {
+    font-size: 14px;
+    white-space: pre-wrap;
+    display: block;
+}
+
+
+/* Lists */
+ul {
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+li {
+    margin-bottom: 4px;
 }

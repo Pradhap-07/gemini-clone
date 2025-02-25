@@ -1,60 +1,44 @@
-import React, { useContext, useState } from 'react'
-import './Sidebar.css'
-import { assets } from '../../assets/assets'
+import React, { useContext, useState } from 'react';
+import './Sidebar.css';
+import { assets } from '../../assets/assets';
 import { context } from '../../context/context';
 
 const Sidebar = () => {
-
   const [extended, setExtended] = useState(false);
-  const {onSent,prevPrompts,setRecentPrompt,newChat} = useContext(context)
+  const { onSent, prevPrompts, setRecentPrompt, setInput } = useContext(context);
 
   const loadPrompt = async (prompt) => {
-    setRecentPrompt(prompt)
-     await onSent(prompt)
-  }
+    setInput(prompt);
+    setRecentPrompt(prompt);
+    await onSent(prompt); // ✅ Load response properly
+  };
+
   return (
     <div className='sidebar'>
-
       <div className="top">
-        <img onClick={()=>setExtended(prev=>!prev)}className='menu' src={assets.menu_icon} alt='' />
-        <div onClick={()=>newChat()}className='new-chat'>
+        <img onClick={() => setExtended(prev => !prev)} className='menu' src={assets.menu_icon} alt='' />
+        <div onClick={() => onSent('')} className='new-chat'>
           <img src={assets.plus_icon} alt='' />
-          {extended ? <p>New Chat</p> : null}
+          {extended && <p>New Chat</p>}
         </div>
-        {extended ?
+        {extended && (
           <div className="recent">
             <p className='recent-title'>Recent</p>
-            {prevPrompts.map( (item,index)=> {
-                return (
-                  <div onClick={ ()=>loadPrompt(item) } className="recent-entry">
-                     <img src={assets.message_icon} alt="" />
-                     <p>{item.slice(0,18)} ...</p>
+            {prevPrompts.length > 0 ? (
+              prevPrompts.map((item, index) => (
+                <div key={index} onClick={() => loadPrompt(item)} className="recent-entry">
+                  <img src={assets.message_icon} alt="" />
+                  <p>{item.slice(0, 18)}...</p>
                 </div>
-                )
-            })}
-            
-          </div> : null}
-
-      </div>
-      <div className="bottom">
-        <div className="bottom-item recent-entry">
-          <img src={assets.question_icon} alt="" />
-          {extended ? <p>Help</p> : null }
-        </div>
-
-        <div className="bottom-item recent-entry">
-          <img src={assets.history_icon} alt="" />
-          {extended ? <p>Activity</p> : null }
-        </div>
-
-        <div className="bottom-item recent-entry">
-          <img src={assets.setting_icon} alt="" />
-          {extended ? <p>Settings</p> : null }
-        </div>
-
+              ))
+            ) : (
+              <p className="no-recent">No recent prompts</p> // ✅ Display message when empty
+            )}
+          </div>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
